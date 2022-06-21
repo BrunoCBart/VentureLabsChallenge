@@ -1,13 +1,25 @@
 .ventureSteps {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.ventureSteps__buttons {
+  margin-bottom: 0.5rem;
+}
+
+.ventureSteps__container {
+  display: flex;
   justify-content: space-between;
   position: relative;
   margin-bottom: 2rem;
-  max-width: 100%;
-  width: 350px;
+  max-width: 500px;
+  width: 100%;
 }
 
-.ventureSteps::before {
+.ventureSteps__container::before {
   content: "";
   position: absolute;
   background-color: var(--line-border-empty);
