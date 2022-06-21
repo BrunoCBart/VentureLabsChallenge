@@ -1,0 +1,76 @@
+.ventureSteps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  width: 350px;
+}
+
+.ventureSteps::before {
+  content: "";
+  position: absolute;
+  background-color: var(--line-border-empty);
+  height: 4px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+#progress {
+  position: absolute;
+  background-color: var(--line-border-fill);
+  height: 4px;
+  width: 0;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.circle:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.progress-icon {
+  width: 23px;
+  height: 23px;
+}
+
+.circle .progress-icon path {
+  fill: var(--line-border-empty);
+}
+
+.circle.active .progress-icon path {
+  fill: var(--line-border-fill);
+}
+
+.circle.active:hover .progress-icon path {
+  fill: #fff;
+}
+
+.circle:hover img {
+  filter: invert(1);
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
