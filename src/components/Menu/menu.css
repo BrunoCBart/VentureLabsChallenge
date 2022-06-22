@@ -1,0 +1,83 @@
+.ventureLabs-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  background-color: rgb(245 245 245);
+  padding: 0;
+  overflow: hidden;
+  width: 0;
+  transition: width 0.5s ease, padding 0.5s ease;
+  z-index: 1;
+  top: 0;
+  white-space: nowrap;
+}
+
+.ventureLabs__hero-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.ventureLabs-menu--open {
+  width: 220px;
+}
+
+.ventureLabs-menu-nav-container {
+  padding: 2rem 0;
+}
+
+.ventureLabs-menu__list {
+  list-style: none;
+}
+
+.ventureLabs-menu__item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 4.2rem;
+  padding: 0 1.2rem;
+}
+
+.ventureLabs-menu__item::after {
+  content: "";
+  height: 100%;
+  background: var(--green-col);
+  width: 0.9rem;
+  position: absolute;
+  left: -10px;
+  border-radius: 20px;
+}
+
+.ventureLabs-menu__link {
+  margin-left: 0.8rem;
+  text-decoration: none;
+  color: var(--green-col);
+}
+
+.ventureLabs-menu__link:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  color: #fff;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
+  width: 20px;
+}
+
+.arrow:hover {
+  transform: scale(0.9) rotate(180deg);
+}
+
+.ventureLabs__menu > .__hero-container > .svg-arrow {
+  display: none;
+}
+
+.ventureLabs__menu--open > .__hero-container > .svg-arrow {
+  display: initial;
+}

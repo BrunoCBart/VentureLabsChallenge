@@ -1,0 +1,40 @@
+.header {
+  background-color: rgb(255 255 255);
+  width: 100%;
+  padding: 0.7rem;
+  height: 2.7rem;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 3px 5px rgb(57 63 72 / 30%);
+}
+
+.header__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header__bars-btn {
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.header__bars {
+  width: 25px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.header__bars:hover {
+  transform: scale(0.9);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 1rem 3.7rem;
+  }
+}
