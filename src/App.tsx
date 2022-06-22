@@ -7,11 +7,13 @@ function App () {
 
   return (
     <div className="App">
-      <VentureForm currentStep={currentStep} />
-      <VentureSteps
-        currentStep={currentStep}
-        setCurrentStep={setCurrentStep}
-      />
+      <section className="ventureWizardForm">
+        <VentureForm currentStep={currentStep} />
+        <VentureSteps
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
+      </section>
     </div>
   )
 }
