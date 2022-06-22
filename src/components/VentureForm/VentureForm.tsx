@@ -78,7 +78,7 @@ const ventureLabsFormInputs: VentureFormIput[][] = [
     },
     {
       name: 'address',
-      label: 'Address:',
+      label: 'Endereço:',
       placeholder: 'digite seu endereço',
       pattern: '^[a-zA-Z]{6,}$',
       type: 'string',
@@ -87,7 +87,7 @@ const ventureLabsFormInputs: VentureFormIput[][] = [
     },
     {
       name: 'address2',
-      label: 'Address2:',
+      label: 'Endereço2:',
       placeholder: 'digite seu endereço',
       pattern: '^[a-zA-Z]{6,}$',
       type: 'string',
