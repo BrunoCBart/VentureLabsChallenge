@@ -10,6 +10,7 @@
   margin-bottom: 0.5rem;
   margin-inline: auto;
   max-width: 500px;
+  padding: 0.5rem;
 }
 
 .form .form-group label {
@@ -24,6 +25,7 @@
   border: none;
   margin-top: 0.5rem;
   border-bottom: 2px solid var(--line-border-fill);
+  box-sizing: border-box;
 }
 
 .error-msg {
