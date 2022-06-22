@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './ventureSteps.css'
 import { FormData, ventureLabsFormInputs } from '../../utils/ventureForm'
 import { InitialSteps, Step, stepsLen } from '../../utils/ventureSteps'
+import StepBtn from './StepBtn'
 
 function VentureSteps ({ currentStep, setCurrentStep, formData }:
    {currentStep: number, setCurrentStep: (index: number) => void, formData: FormData}) {
@@ -51,24 +52,48 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
     onNextAndPrevStep()
   }, [currentStep])
 
+  const notFinalStep = () => currentStep < steps.length - 1
+
+  const firstStep = () => currentStep === 0
+
+  const notFirstStep = () => currentStep > 0
+
+  const prevStep = () => currentStep > 0 ? currentStep - 1 : 0
+
+  const nextStep = () => steps.length - 1 === currentStep ? currentStep : currentStep + 1
+
+  const invalidFormOrNotLastStep = () => currentStep === steps.length - 1 || nextDisabled
+
+  const formStep = () => currentStep < stepsLen - 2
+
   return (
     <div className="ventureSteps">
-        {currentStep < steps.length - 1 && <div className="ventureSteps__buttons">
-          <button
-          type='submit'
-          className={`btn ${currentStep > 0 && 'active'}`}
-          disabled={currentStep === 0}
-          onClick={() => setCurrentStep(currentStep > 0 ? currentStep - 1 : 0)}
-          >
-            Voltar
-          </button>
-         { <button className={`btn ${currentStep < steps.length - 1 && 'active'}`}
-          disabled={currentStep === steps.length - 1 || nextDisabled}
-          type={currentStep === 2 ? 'submit' : 'button'}
-          onClick={() => setCurrentStep(steps.length - 1 === currentStep ? currentStep : currentStep + 1)}
-          >
-            {steps.length - 2 <= currentStep ? 'Enviar' : 'Próximo'}
-          </button>}
+        { notFinalStep() && <div className="ventureSteps__buttons">
+          <StepBtn
+            label="Voltar"
+            type="button"
+            className={`btn ${notFirstStep() && 'active'}`}
+            setCurrentStep={setCurrentStep}
+            disabled={firstStep()}
+            nextOrPrev={prevStep()}
+            />
+          {formStep()
+            ? <StepBtn
+            label="Próximo"
+            type="button"
+            className={`btn ${notFinalStep() && 'active'}`}
+            setCurrentStep={setCurrentStep}
+            disabled={invalidFormOrNotLastStep()}
+            nextOrPrev={nextStep()}
+            />
+            : <StepBtn
+            label="Enviar"
+            type="submit"
+            className={`btn ${notFinalStep() && 'active'}`}
+            setCurrentStep={setCurrentStep}
+            disabled={invalidFormOrNotLastStep()}
+            nextOrPrev={nextStep()}
+            />}
         </div>}
       <div className="ventureSteps__container">
         <div id="progress"></div>

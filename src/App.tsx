@@ -14,6 +14,8 @@ function App () {
     <div className="App">
       <Header />
       <Menu setMenuItem={setMenuItem}/>
+      {menuItem === 'newClient'
+        ? <>
        <VentureForm
         currentStep={currentStep}
         formData={formData}
@@ -23,7 +25,10 @@ function App () {
         formData={formData}
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
-      />
+        />
+      </>
+        : <div></div>
+      }
     </div>
   )
 }
