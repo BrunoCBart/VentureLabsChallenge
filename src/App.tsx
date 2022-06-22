@@ -1,9 +1,17 @@
+import { useState } from 'react'
+import VentureForm from './components/VentureForm/VentureForm'
 import VentureSteps from './components/VentureSteps/VentureSteps'
 
 function App () {
+  const [currentStep, setCurrentStep] = useState(0)
+
   return (
     <div className="App">
-      <VentureSteps />
+      <VentureForm currentStep={currentStep} />
+      <VentureSteps
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+      />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { ReactElement, useEffect, useState } from 'react'
 import './ventureSteps.css'
 import Contact from '../svgs/Contact'
@@ -36,9 +37,9 @@ const InitialSteps: Step[] = [
 
 ]
 
-function VentureSteps () {
+function VentureSteps ({ currentStep, setCurrentStep }:
+   {currentStep: number, setCurrentStep: (index: number) => void}) {
   const [steps, setSteps] = useState(InitialSteps)
-  const [currentStep, setCurrentStep] = useState(0)
 
   const onNextAndPrevStep = () => {
     const newSteps = steps.map((step, i) => {
@@ -69,12 +70,14 @@ function VentureSteps () {
   return (
     <div className="ventureSteps">
         <div className="ventureSteps__buttons">
-          <button className="btn"
+          <button className={`btn ${currentStep > 0 && 'active'}`}
+          disabled={currentStep === 0}
           onClick={() => setCurrentStep(currentStep > 0 ? currentStep - 1 : 0)}
           >
             Voltar
           </button>
-          <button className="btn"
+          <button className={`btn ${currentStep < steps.length - 1 && 'active'}`}
+          disabled={currentStep === steps.length - 1}
           onClick={() => setCurrentStep(steps.length - 1 === currentStep ? currentStep : currentStep + 1)}
           >
             Próximo
@@ -95,6 +98,10 @@ function VentureSteps () {
       </div>
     </div>
   )
+}
+
+VentureSteps.propTypes = {
+  currentStep: PropTypes.number.isRequired
 }
 
 export default VentureSteps
