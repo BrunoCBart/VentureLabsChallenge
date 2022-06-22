@@ -52,8 +52,10 @@
 }
 
 .newUser-icon {
+  position: absolute;
   width: 30px;
   cursor: pointer;
+  left: -30px;
 }
 
 .newUser-icon path {
@@ -65,6 +67,9 @@
 }
 
 .ventureLabs-menu__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
   border: none;
   outline: none;
   cursor: pointer;

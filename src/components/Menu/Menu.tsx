@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Arrow from '../svgs/Arrow'
 import NewUser from '../svgs/NewUser'
 import UserList from '../svgs/UserList'
 import './menu.css'
-function Menu () {
+function Menu ({ setMenuItem }: {setMenuItem: (e: any) => void}) {
   useEffect(() => {
     if (window.innerWidth > 768) {
       const menu = document.querySelector('.ventureLabs-menu')
       menu && menu.classList.add('ventureLabs-menu--open')
     }
   }, [])
+
+  const onBtnItemClick = (item: string) => {
+    setMenuItem(item)
+  }
   return (
     <section className="ventureLabs-menu">
       <div className="ventureLabs__hero-container">
@@ -20,15 +24,20 @@ function Menu () {
         <nav className="ventureLabs-menu__nav">
           <ul className="ventureLabs-menu__list">
             <li className="ventureLabs-menu__item active">
-              <NewUser className="newUser-icon"/>
-              <button className="ventureLabs-menu__btn">
-                  Novo Cliente
+              <button
+                onClick={() => onBtnItemClick('newClient')}
+                className="ventureLabs-menu__btn">
+                <NewUser className="newUser-icon"/>
+                 <span className="ventureLabs-menu__btn-text">Novo Cliente</span>
               </button>
             </li>
             <li className="ventureLabs-menu__item">
-              <UserList className="newUser-icon list"/>
-              <button className="ventureLabs-menu__btn">
-                  Lista de Clientes
+              <button
+                onClick={() => onBtnItemClick('clientList')}
+
+                className="ventureLabs-menu__btn">
+                <UserList className="newUser-icon list"/>
+                  <span className="ventureLabs-menu__btn-text">Lista de Clientes</span>
               </button>
             </li>
           </ul>

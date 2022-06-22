@@ -25,8 +25,8 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
     setSteps(newSteps)
   }
 
-  useEffect(() => {
-    console.log(currentStep)
+  const disableNextBtn = () => {
+    if (currentStep === stepsLen - 1) return
     const nextIsDisabled = ventureLabsFormInputs[currentStep]
       .every(({ name, pattern }) => {
         if (!pattern) return true
@@ -34,6 +34,10 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
         return false
       })
     setNextDisabled(!nextIsDisabled)
+  }
+
+  useEffect(() => {
+    disableNextBtn()
   }, [formData, currentStep])
 
   const onStepCircleButtonClick = (i: number) => {
