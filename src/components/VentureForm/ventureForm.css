@@ -1,16 +1,15 @@
 .form {
   color: var(--white);
   text-align: start;
-  width: 100%;
-  max-width: 500px;
   background-color: var(--red);
-  padding: 0.7rem;
   border-radius: 0.5rem;
   margin: 0 auto;
 }
 
 .form .form-group {
   margin-bottom: 0.5rem;
+  margin-inline: auto;
+  max-width: 500px;
 }
 
 .form .form-group label {
@@ -29,8 +28,23 @@
 
 .error-msg {
   display: none;
+  color: red;
+  font-size: 0.8rem;
 }
 
-.form .form-group input:invalid[focused="true"] ~ span {
+.form .form-group input:invalid[data-focused="true"] ~ span {
   display: block;
+}
+
+.formSteps-container {
+  display: inline-flex;
+  transform: translate(0);
+  transition: transform 0.3s ease-out;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.formStep {
+  flex: 0 0 100vw;
+  transition: transform 0.3s ease-out;
 }
