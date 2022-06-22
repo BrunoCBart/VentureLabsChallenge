@@ -1,3 +1,5 @@
+import { JsxElement } from 'typescript'
+
 export interface FormData {
   name: string
   lastName: string
@@ -33,6 +35,7 @@ export interface VentureFormIput {
   pattern?: string
   type: string
   options?: string[]
+  component?: JsxElement
 }
 
 export const ventureLabsFormInputs: VentureFormIput[][] = [
@@ -131,8 +134,5 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
         'Mais de 10.000.00R$'
       ]
     }
-  ],
-  [
-    // Done Step
   ]
 ]

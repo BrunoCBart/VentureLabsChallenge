@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import VentureFormInput from './VentureFormInput'
 import './ventureForm.css'
 import { FormData, ventureLabsFormInputs } from '../../utils/ventureForm'
+import cutePanda from '../../../images/cutepanda.gif'
 
 function VentureForm ({ currentStep, formData, setFormData }:
    {currentStep: number, formData: FormData, setFormData: (e: any) => void }) {
@@ -15,7 +16,6 @@ function VentureForm ({ currentStep, formData, setFormData }:
 
   useEffect(() => {
     const formSteps: any = document.querySelector('.formSteps-container')
-    console.log(window.innerWidth)
     const setPositionByIndex = () => {
       currentTranslate = currentStep * -window.innerWidth
       setSliderPosition()
@@ -52,6 +52,13 @@ function VentureForm ({ currentStep, formData, setFormData }:
              ))}
           </div>
         ))}
+        <div className="formStep">
+          <div className="formReceivedMsg">
+            <h2>Formulário enviado com sucesso!</h2>
+            <p>Muito obrigado!</p>
+            <img src={cutePanda}/>
+          </div>
+        </div>
       </div>
     </form>
   )

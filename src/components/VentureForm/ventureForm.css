@@ -3,7 +3,8 @@
   text-align: start;
   background-color: var(--red);
   border-radius: 0.5rem;
-  margin: 0 auto;
+  margin-inline: auto;
+  margin-top: 5rem;
 }
 
 .form .form-group {
@@ -49,4 +50,27 @@
 .formStep {
   flex: 0 0 100vw;
   transition: transform 0.3s ease-out;
+}
+
+.formReceivedMsg {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243 243 243);
+  border-radius: 2px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.formReceivedMsg h2 {
+  margin: 0;
+}
+
+.formReceivedMsg img {
+  width: 250px;
+  border-radius: 1rem;
 }
