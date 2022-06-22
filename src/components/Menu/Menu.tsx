@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import Arrow from '../svgs/Arrow'
+import NewUser from '../svgs/NewUser'
+import UserList from '../svgs/UserList'
 import './menu.css'
 function Menu () {
   useEffect(() => {
@@ -17,10 +19,17 @@ function Menu () {
       <div className="ventureLabs-menu-nav-container">
         <nav className="ventureLabs-menu__nav">
           <ul className="ventureLabs-menu__list">
+            <li className="ventureLabs-menu__item active">
+              <NewUser className="newUser-icon"/>
+              <button className="ventureLabs-menu__btn">
+                  Novo Cliente
+              </button>
+            </li>
             <li className="ventureLabs-menu__item">
-              <a href="#" className="ventureLabs-menu__link">
-                Notas Fiscais
-              </a>
+              <UserList className="newUser-icon list"/>
+              <button className="ventureLabs-menu__btn">
+                  Lista de Clientes
+              </button>
             </li>
           </ul>
         </nav>

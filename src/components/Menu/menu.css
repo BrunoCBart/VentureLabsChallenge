@@ -37,26 +37,46 @@
   align-items: center;
   position: relative;
   height: 4.2rem;
-  padding: 0 1.2rem;
+  padding: 0 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.ventureLabs-menu__item::after {
+.ventureLabs-menu__item.active::after {
   content: "";
   height: 100%;
-  background: var(--green-col);
+  background: var(--line-border-fill);
   width: 0.9rem;
   position: absolute;
-  left: -10px;
+  left: -50px;
   border-radius: 20px;
 }
 
-.ventureLabs-menu__link {
-  margin-left: 0.8rem;
-  text-decoration: none;
-  color: var(--green-col);
+.newUser-icon {
+  width: 30px;
+  cursor: pointer;
 }
 
-.ventureLabs-menu__link:hover {
+.newUser-icon path {
+  fill: var(--line-border-fill);
+}
+
+.newUser-icon.list {
+  transform: scale(1.35);
+}
+
+.ventureLabs-menu__btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.ventureLabs-menu__btn:hover {
+  text-decoration: underline;
+}
+
+.newUser-icon:hover ~ .ventureLabs-menu__btn {
   text-decoration: underline;
 }
 
@@ -71,7 +91,7 @@
 }
 
 .arrow:hover {
-  transform: scale(0.9) rotate(180deg);
+  transform: scale(0.85) rotate(180deg);
 }
 
 .ventureLabs__menu > .__hero-container > .svg-arrow {
