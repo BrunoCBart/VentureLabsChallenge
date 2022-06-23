@@ -1,12 +1,11 @@
-import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import VentureFormInput from './VentureFormInput'
 import './ventureForm.css'
 import { FormData, ventureLabsFormInputs } from '../../utils/ventureForm'
 import cutePanda from '../../../images/cutepanda.gif'
 
 function VentureForm ({ currentStep, formData, setFormData }:
-   {currentStep: number, formData: FormData, setFormData: (e: any) => void }) {
+   {currentStep: number, formData: FormData, setFormData: (data: any) => void }) {
   let currentTranslate: number = 0
 
   const onInputChange = ({ target }: any) => {
@@ -37,19 +36,19 @@ function VentureForm ({ currentStep, formData, setFormData }:
   }, [currentStep])
 
   return (
-    <form className="form">
+    <form className="form" id="ventureForm">
       <div className="formSteps-container" >
         {ventureLabsFormInputs.map((inputs, i) => (
           <div className={`formStep ${currentStep === i && 'active'}`}
-           key={`formStep-${i}`}>
-             {inputs.map((input, j) => (
+          key={`formStep-${i}`}>
+            {inputs.map((input, j) => (
               <VentureFormInput
                 key={input.name}
                 onChange={onInputChange}
                 value={formData[input.name]}
                 {...input}
               />
-             ))}
+            ))}
           </div>
         ))}
         <div className="formStep">
@@ -62,11 +61,6 @@ function VentureForm ({ currentStep, formData, setFormData }:
       </div>
     </form>
   )
-}
-
-VentureForm.propTypes = {
-  inputs: PropTypes.arrayOf(PropTypes.shape({
-  }))
 }
 
 export default VentureForm
