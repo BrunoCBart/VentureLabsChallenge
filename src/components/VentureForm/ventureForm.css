@@ -67,10 +67,28 @@
 }
 
 .formReceivedMsg h2 {
+  text-align: center;
   margin: 0;
 }
 
 .formReceivedMsg img {
   width: 250px;
   border-radius: 1rem;
+}
+
+.ventureLabs-select {
+  outline: none;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--line-border-fill);
+  color: white;
+  margin-left: 1rem;
+}
+
+.ventureLabs-select option {
+  border: none;
 }

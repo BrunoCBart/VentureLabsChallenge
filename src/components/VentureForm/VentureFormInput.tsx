@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { useState } from 'react'
+import SelectForm from './SelectForm'
 
 function VentureFormInput (
   {
@@ -22,13 +22,12 @@ function VentureFormInput (
         <span className="form-label">{required ? `${label}*` : label}</span>
 
         {type === 'select'
-          ? <select onChange={onChange} name={name} value={value}>
-            {options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-        </select>
+          ? <SelectForm
+            onChange={onChange}
+            name={name}
+            options={options}
+            value={value}
+          />
           : <input
           onChange={onChange}
           name={name}
@@ -43,16 +42,6 @@ function VentureFormInput (
       </label>
     </div>
   )
-}
-VentureFormInput.propTypes = {
-  errorMessage: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string),
-  placeholder: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  type: PropTypes.string.isRequired
 }
 
 export default VentureFormInput
