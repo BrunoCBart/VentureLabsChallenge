@@ -8,7 +8,7 @@
   overflow: hidden;
   width: 0;
   transition: width 0.5s ease, padding 0.5s ease;
-  z-index: 1;
+  z-index: 101;
   top: 0;
   white-space: nowrap;
   border-right: 4px solid var(--line-border-fill);
