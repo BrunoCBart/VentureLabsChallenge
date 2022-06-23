@@ -16,8 +16,6 @@ function App () {
     setCurrentStep(0)
   }, [menuItem])
 
-  // There is a bug making a button type 'button trigger submit'
-
   return (
     <div className="App">
       <Header />
