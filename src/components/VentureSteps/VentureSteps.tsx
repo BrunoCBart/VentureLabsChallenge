@@ -44,7 +44,10 @@ function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm
   }, [formData, currentStep])
 
   const onStepCircleButtonClick = (i: number) => {
-    if (currentStep + 1 === i && !nextDisabled) setCurrentStep(i)
+    if (currentStep + 1 === i && !nextDisabled) {
+      submitClientForm(formData)
+      setCurrentStep(i)
+    }
     if (currentStep - 1 === i && currentStep < stepsLen - 1) setCurrentStep(i)
   }
 
