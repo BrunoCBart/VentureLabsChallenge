@@ -22,9 +22,9 @@ function VentureFormInput (
         <span className="form-label">{required ? `${label}*` : label}</span>
 
         {type === 'select'
-          ? <select onChange={onChange} name={name}>
+          ? <select onChange={onChange} name={name} value={value}>
             {options.map((option) => (
-              <option key={option}>
+              <option key={option} value={option}>
                 {option}
               </option>
             ))}

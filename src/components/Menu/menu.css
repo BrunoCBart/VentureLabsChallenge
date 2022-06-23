@@ -11,6 +11,7 @@
   z-index: 1;
   top: 0;
   white-space: nowrap;
+  border-right: 4px solid var(--line-border-fill);
 }
 
 .ventureLabs__hero-container {

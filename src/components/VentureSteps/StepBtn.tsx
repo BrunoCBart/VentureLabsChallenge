@@ -1,14 +1,16 @@
 import React from 'react'
 
-function StepBtn ({ label, setCurrentStep, disabled, nextOrPrev, type, className }:
-   {label: string, nextOrPrev: number, type: 'button' | 'submit',
-     setCurrentStep: (step: number) => void, disabled: boolean, className: string }) {
+function StepBtn ({ label, setCurrentStep, disabled, type, className, nextOrPrev, formId }:
+   {label: string, type: 'button' | 'submit', nextOrPrev: (e: any, type:string) => void
+     setCurrentStep: (step: number) => void, disabled: boolean, className: string,
+    formId?: string }) {
   return (
     <button
+    form={formId}
     type={type}
     className={className}
     disabled={disabled}
-    onClick={() => setCurrentStep(nextOrPrev)}
+    onClick={(e) => nextOrPrev(e, type)}
     >
       {label}
     </button>

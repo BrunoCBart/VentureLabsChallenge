@@ -1,0 +1,82 @@
+.clientList {
+  margin-top: 5rem;
+  padding: 0.4rem;
+}
+
+.clientList h2 {
+  text-align: center;
+}
+
+.clientList__user-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #dfe2eb;
+  padding: 1rem 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clientList__user-container.client {
+  border: none;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: var(--line-border-fill);
+}
+
+.clientList__user-header {
+  color: var(--line-border-fill);
+}
+
+.clientList__desktop-head .clientList__user-header {
+  color: #fff;
+}
+
+.clientList__user-container.client .clientList__user-header {
+  color: #fff;
+}
+
+.clientList__user-container.gray {
+  background-color: rgb(238 237 237);
+}
+
+.clientList__user-data {
+  margin-left: 0.5rem;
+}
+
+.clientList__header {
+  display: flex;
+}
+
+.clientList__desktop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  overflow-x: scroll;
+}
+
+.clientList__desktop-head {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--line-border-fill);
+  padding: 1rem 0.4rem;
+}
+
+.clientList__desktop-user-data {
+  font-size: 1.1rem;
+  white-space: nowrap;
+  border: 1px solid #dfe2eb;
+  padding: 1rem 0.4rem;
+}
+
+.clientList__desktop-user-data .clientList__user-data {
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .clientList {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+}

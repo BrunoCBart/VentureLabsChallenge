@@ -23,7 +23,7 @@ export const INITIAL_FORM_DATA: FormData = {
   address2: '',
   birthDate: '',
   cpf: '',
-  monthlyIncome: ''
+  monthlyIncome: 'Entre 0.00R$ e 1000.00R$'
 }
 
 export interface VentureFormIput {

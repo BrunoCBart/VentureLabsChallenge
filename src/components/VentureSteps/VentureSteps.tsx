@@ -4,9 +4,11 @@ import './ventureSteps.css'
 import { FormData, ventureLabsFormInputs } from '../../utils/ventureForm'
 import { InitialSteps, Step, stepsLen } from '../../utils/ventureSteps'
 import StepBtn from './StepBtn'
-
-function VentureSteps ({ currentStep, setCurrentStep, formData }:
-   {currentStep: number, setCurrentStep: (index: number) => void, formData: FormData}) {
+import { connect } from 'react-redux'
+import { submitForm } from '../../redux/actions'
+function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm }:
+   {currentStep: number, submitClientForm: (payload: FormData) => void,
+    setCurrentStep: (index: number) => void, formData: FormData}) {
   const [steps, setSteps] = useState(InitialSteps)
   const [nextDisabled, setNextDisabled] = useState(true)
 
@@ -52,22 +54,34 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
     onNextAndPrevStep()
   }, [currentStep])
 
-  const notFinalStep = () => currentStep < steps.length - 1
+  const notFinalStep = (): boolean => currentStep < steps.length - 1
 
-  const firstStep = () => currentStep === 0
+  const firstStep = ():boolean => currentStep === 0
 
-  const notFirstStep = () => currentStep > 0
+  const notFirstStep = ():boolean => currentStep > 0
 
-  const prevStep = () => currentStep > 0 ? currentStep - 1 : 0
+  const prevStep = (): number => currentStep > 0 ? currentStep - 1 : 0
 
-  const nextStep = () => steps.length - 1 === currentStep ? currentStep : currentStep + 1
+  const nextStep = (): number => steps.length - 1 === currentStep ? currentStep : currentStep + 1
 
-  const invalidFormOrNotLastStep = () => currentStep === steps.length - 1 || nextDisabled
+  const invalidFormOrNotLastStep = (): boolean => currentStep === steps.length - 1 || nextDisabled
 
-  const formStep = () => currentStep < stepsLen - 2
+  const formStep = (): boolean => currentStep < stepsLen - 2
+
+  const onPrevButtonClick = (e:any, type: string) => {
+    e.preventDefault()
+    setCurrentStep(prevStep())
+  }
+
+  const onNextButtonClick = (e:any, type: string) => {
+    e.preventDefault()
+    setCurrentStep(nextStep())
+    type === 'submit' && submitClientForm(formData)
+  }
 
   return (
     <div className="ventureSteps">
+
         { notFinalStep() && <div className="ventureSteps__buttons">
           <StepBtn
             label="Voltar"
@@ -75,7 +89,8 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
             className={`btn ${notFirstStep() && 'active'}`}
             setCurrentStep={setCurrentStep}
             disabled={firstStep()}
-            nextOrPrev={prevStep()}
+            // nextOrPrev={prevStep()}
+            nextOrPrev={onPrevButtonClick}
             />
           {formStep()
             ? <StepBtn
@@ -84,16 +99,17 @@ function VentureSteps ({ currentStep, setCurrentStep, formData }:
             className={`btn ${notFinalStep() && 'active'}`}
             setCurrentStep={setCurrentStep}
             disabled={invalidFormOrNotLastStep()}
-            nextOrPrev={nextStep()}
-            />
+            nextOrPrev={onNextButtonClick}
+          />
             : <StepBtn
             label="Enviar"
             type="submit"
+            formId='ventureForm'
             className={`btn ${notFinalStep() && 'active'}`}
             setCurrentStep={setCurrentStep}
             disabled={invalidFormOrNotLastStep()}
-            nextOrPrev={nextStep()}
-            />}
+            nextOrPrev={onNextButtonClick}
+          />}
         </div>}
       <div className="ventureSteps__container">
         <div id="progress"></div>
@@ -116,4 +132,8 @@ VentureSteps.propTypes = {
   currentStep: PropTypes.number.isRequired
 }
 
-export default VentureSteps
+const mapDispatchToProps = (dispatch: any) => ({
+  submitClientForm: (payload: FormData) => dispatch(submitForm(payload))
+})
+
+export default connect(null, mapDispatchToProps)(VentureSteps)
