@@ -23,7 +23,7 @@ você pode visualizar os novos clientes, se clicar na opção do menu "Lista de 
 Durante o desenvolvimento dessa aplicação eu fiz utilização do figma para montar
 alguns componentes de apoio e conseguir
 alguns ícones.
-Fiz o setup inicial com lint stylelint vite e typescript, também optei por não usar blibiotecas externas.
+Fiz o setup inicial com lint stylelint vite e typescript, também optei por não usar blibiotecas externas, mas fiz uso do framework redux para adicionar o estado dos clientes e persisti-los no localstorage.
 
 
 #### Testing
