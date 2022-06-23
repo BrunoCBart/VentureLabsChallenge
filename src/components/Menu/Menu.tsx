@@ -12,6 +12,10 @@ function Menu ({ setMenuItem }: {setMenuItem: (e: any) => void}) {
   }, [])
 
   const onBtnItemClick = (item: string) => {
+    const prevItem = document.querySelector('.ventureLabs-menu__item.active')
+    if (prevItem) prevItem.classList.remove('active')
+    const currentItem = document.querySelector(`.ventureLabs-menu__item.item-${item}`)
+    currentItem?.classList.add('active')
     setMenuItem(item)
   }
   return (
@@ -23,7 +27,7 @@ function Menu ({ setMenuItem }: {setMenuItem: (e: any) => void}) {
       <div className="ventureLabs-menu-nav-container">
         <nav className="ventureLabs-menu__nav">
           <ul className="ventureLabs-menu__list">
-            <li className="ventureLabs-menu__item active">
+            <li className="ventureLabs-menu__item item-newClient active">
               <button
                 onClick={() => onBtnItemClick('newClient')}
                 className="ventureLabs-menu__btn">
@@ -31,7 +35,7 @@ function Menu ({ setMenuItem }: {setMenuItem: (e: any) => void}) {
                  <span className="ventureLabs-menu__btn-text">Novo Cliente</span>
               </button>
             </li>
-            <li className="ventureLabs-menu__item">
+            <li className="ventureLabs-menu__item item-clientList">
               <button
                 onClick={() => onBtnItemClick('clientList')}
 
