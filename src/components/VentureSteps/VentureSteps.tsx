@@ -44,6 +44,7 @@ function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm
   }, [formData, currentStep])
 
   const onStepCircleButtonClick = (i: number) => {
+    console.log(!nextDisabled)
     if (currentStep + 1 === i && !nextDisabled) {
       submitClientForm(formData)
       setCurrentStep(i)
@@ -92,7 +93,6 @@ function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm
             className={`btn ${notFirstStep() && 'active'}`}
             setCurrentStep={setCurrentStep}
             disabled={firstStep()}
-            // nextOrPrev={prevStep()}
             nextOrPrev={onPrevButtonClick}
             />
           {formStep()
