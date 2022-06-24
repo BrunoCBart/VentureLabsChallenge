@@ -45,7 +45,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
       label: 'Nome:',
       placeholder: 'Digite o seu nome',
       type: 'text',
-      pattern: '^[a-zA-Z\u00C0-\u00FF]{3}[a-zA-Z\u00C0-\u00FF ]*$',
+      pattern: '^[a-zA-Z\u00C0-\u00FF]{3}[a-zA-Z\u00C0-\u00FF]*$',
       required: true,
       errorMessage: 'Nome precisa ter mais de 2 caracteres sem espaços'
     },
