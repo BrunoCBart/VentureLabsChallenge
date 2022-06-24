@@ -7,6 +7,24 @@ import Menu from './components/Menu/Menu'
 import ClientList from './components/ClientList/ClientList'
 
 function App () {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  })
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
+
   const [formData, setFormData] = useState(INITIAL_FORM_DATA)
   const [currentStep, setCurrentStep] = useState(0)
   const [menuItem, setMenuItem] = useState('newClient')
@@ -26,6 +44,7 @@ function App () {
           currentStep={currentStep}
           formData={formData}
           setFormData={setFormData}
+          dimensions={dimensions}
         />
         <VentureSteps
           formData={formData}
@@ -33,7 +52,10 @@ function App () {
           setCurrentStep={setCurrentStep}
           />
         </>
-        : <ClientList clientList={[]}/>
+        : <ClientList
+          clientList={[]}
+          dimensions={dimensions}
+          />
       }
     </div>
   )

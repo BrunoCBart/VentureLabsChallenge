@@ -4,8 +4,9 @@ import './ventureForm.css'
 import { FormData, ventureLabsFormInputs } from '../../utils/ventureForm'
 import cutePanda from '../../../images/cutepanda.gif'
 
-function VentureForm ({ currentStep, formData, setFormData }:
-   {currentStep: number, formData: FormData, setFormData: (data: any) => void }) {
+function VentureForm ({ currentStep, formData, setFormData, dimensions }:
+   {currentStep: number, formData: FormData, setFormData: (data: any) => void,
+    dimensions: {height: number, width: number}}) {
   let currentTranslate: number = 0
 
   const onInputChange = ({ target }: any) => {
@@ -16,7 +17,7 @@ function VentureForm ({ currentStep, formData, setFormData }:
   useEffect(() => {
     const formSteps: any = document.querySelector('.formSteps-container')
     const setPositionByIndex = () => {
-      currentTranslate = currentStep * -window.innerWidth
+      currentTranslate = currentStep * -dimensions.width
       setSliderPosition()
     }
 
@@ -33,7 +34,7 @@ function VentureForm ({ currentStep, formData, setFormData }:
     return () => {
       cancelAnimationFrame(animationId)
     }
-  }, [currentStep])
+  }, [currentStep, dimensions])
 
   return (
     <form className="form" id="ventureForm">
