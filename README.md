@@ -5,7 +5,11 @@ Visite a [aplicação aqui](https://venture-labs-challenge-brunocbart.vercel.app
 
 #### Como rodar a aplicação
 
-Para rodar a aplicação simplismente clone o repositório e rode o seguinte comando:
+Para rodar a aplicação simplismente clone o repositório e rode os seguinte comando:
+
+```
+npm install ou npm i
+```
 
 ```
 npm run dev
