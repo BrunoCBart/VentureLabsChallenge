@@ -5,7 +5,7 @@ function ClientListMobile ({ clientList, headFormat }:
    {clientList: FormData[], headFormat: FormData}) {
   return (
     <>
-    {clientList.map((client) => {
+    {clientList.sort().map((client) => {
       const clientData = Object.entries(client) as [keyof typeof headFormat, string][]
       return clientData.map(([head, value], i) => (
        <div key={`head-${i}`} className={`clientList__user-container ${i === 0 && 'client'} ${i % 2 === 1 && 'gray'}`}>

@@ -47,7 +47,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
       type: 'text',
       pattern: '^[a-zA-Z\u00C0-\u00FF]{3}[a-zA-Z\u00C0-\u00FF ]*$',
       required: true,
-      errorMessage: 'Nome precisa ter mais de 2 caracteres'
+      errorMessage: 'Nome precisa ter mais de 2 caracteres sem espaços'
     },
     {
       name: 'lastName',
@@ -56,7 +56,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
       type: 'text',
       pattern: '^[a-zA-Z\u00C0-\u00FF]{3}[a-zA-Z\u00C0-\u00FF]*$',
       required: true,
-      errorMessage: 'Sobrenome precisa ter mais de 2 caracteres'
+      errorMessage: 'Sobrenome precisa ter mais de 2 caracteres sem espaços'
     },
     {
       name: 'email',
@@ -91,7 +91,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
       name: 'address',
       label: 'Endereço:',
       placeholder: 'digite seu endereço',
-      pattern: '^[a-zA-Z ]{6,}$',
+      pattern: '^[a-zA-Z0-9 ]{6,}$',
       type: 'string',
       required: true,
       errorMessage: 'Endereço precisa ter no mínimo 6 dígitos'
@@ -100,7 +100,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
       name: 'address2',
       label: 'Endereço2:',
       placeholder: 'digite seu endereço',
-      pattern: '^[a-zA-Z ]{6,}$',
+      pattern: '^[a-zA-Z0-9 ]{6,}$',
       type: 'string',
       required: false,
       errorMessage: 'Endereço precisa ter no mínimo 6 dígitos'
