@@ -31,11 +31,13 @@ function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm
   const disableNextBtn = () => {
     if (currentStep === stepsLen - 1) return
     const nextIsDisabled = ventureLabsFormInputs[currentStep]
-      .every(({ name, pattern }) => {
-        if (!pattern) return true
+      .every(({ name, pattern, required }) => {
+        console.log(required)
+        if (!pattern || !required) return true
         if (formData[name].match(pattern)) return true
         return false
       })
+    console.log('a')
     setNextDisabled(!nextIsDisabled)
   }
 
