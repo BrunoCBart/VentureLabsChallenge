@@ -43,10 +43,13 @@ function VentureSteps ({ currentStep, setCurrentStep, formData, submitClientForm
     disableNextBtn()
   }, [formData, currentStep])
 
+  const enableNextStep = (i:number) => currentStep + 1 === i && !nextDisabled
+  const enablePrevStep = (i:number) => currentStep - 1 === i && currentStep < stepsLen - 1
+  const enableSubmitForm = (i: number) => currentStep + 1 === stepsLen - 1 && !nextDisabled
   const onStepCircleButtonClick = (i: number) => {
-    if (currentStep + 1 === i && !nextDisabled) setCurrentStep(i)
-    if (currentStep - 1 === i && currentStep < stepsLen - 1) setCurrentStep(i)
-    if (currentStep + 1 === stepsLen - 1 && !nextDisabled) submitClientForm(formData)
+    if (enableNextStep(i)) setCurrentStep(i)
+    if (enablePrevStep(i)) setCurrentStep(i)
+    if (enableSubmitForm(i)) submitClientForm(formData)
   }
 
   useEffect(() => {
