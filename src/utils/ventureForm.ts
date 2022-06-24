@@ -109,7 +109,7 @@ export const ventureLabsFormInputs: VentureFormIput[][] = [
   [
     {
       name: 'birthDate',
-      label: 'Data ter Nascimento:',
+      label: 'Data de Nascimento:',
       pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}',
       type: 'date'
     },
