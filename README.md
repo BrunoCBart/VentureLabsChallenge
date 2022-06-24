@@ -39,6 +39,6 @@ Eu não fiz testes nesse projeto, pois eu não sabia que o [vite](https://vitejs
 
 (#FIXED)Quando o tamanho da tela é diminuido com o inspecionar elemento o slider do form se move, ainda tentando descobrir como evitar isso. 
 
-Tive problemas com uma ação de onSubmit onde um button type "button" "aparentemente" estava gerando uma ação de submit, e não consegui descobrir porque, acredito que o react achou que o button era de submit pois eu renderizava um button de submit logo após o clique nesse botão.
+(#WORKAROUND)Tive problemas com uma ação de onSubmit onde um button type "button" "aparentemente" estava gerando uma ação de submit, e não consegui descobrir porque, acredito que o react achou que o button era de submit pois eu renderizava um button de submit logo após o clique nesse botão.
 
-O redux-persist está perdendo alguns dados em algumas renderizações por algum motivo.
+(#FIXED)O redux-persist está perdendo alguns dados em algumas renderizações por algum motivo.
