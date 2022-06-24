@@ -107,3 +107,7 @@
 .ventureLabs__menu--open > .__hero-container > .svg-arrow {
   display: initial;
 }
+
+.author {
+  margin-left: 0.5rem;
+}

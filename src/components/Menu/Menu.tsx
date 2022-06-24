@@ -22,7 +22,14 @@ function Menu ({ setMenuItem }: {setMenuItem: (e: any) => void}) {
     <section className="ventureLabs-menu">
       <div className="ventureLabs__hero-container">
         <Arrow className="arrow"/>
-        <p>Venture Labs®</p>
+        <div>
+          <p>Venture Labs®</p>
+          <p>Por:
+            <a className="author"
+            href='https://github.com/BrunoCBart'
+             target="blank">Bruno Bartolomeu</a>
+             </p>
+        </div>
       </div>
       <div className="ventureLabs-menu-nav-container">
         <nav className="ventureLabs-menu__nav">
