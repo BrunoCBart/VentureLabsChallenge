@@ -40,7 +40,7 @@ function VentureForm ({ currentStep, formData, setFormData }:
       <div className="formSteps-container" >
         {ventureLabsFormInputs.map((inputs, i) => (
           <div className={`formStep ${currentStep === i && 'active'}`}
-          key={`formStep-${i}`}>
+            key={`formStep-${i}`}>
             {inputs.map((input, j) => (
               <VentureFormInput
                 key={input.name}

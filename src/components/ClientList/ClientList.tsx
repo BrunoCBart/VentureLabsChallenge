@@ -1,24 +1,11 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { FormData } from '../../utils/ventureForm'
+import { ClientList, headFormat } from '../../utils/clientList'
 import './clientList.css'
 import ClientListDesktop from './ClientListDesktop'
 import ClientListMobile from './ClientListMobile'
 
-const headFormat: FormData = {
-  name: 'Cliente',
-  lastName: 'Sobrenome',
-  email: 'Email',
-  phone: 'Telefone',
-  cep: 'CEP',
-  address: 'Endereço',
-  address2: 'Endereço2',
-  birthDate: 'Nascimento',
-  cpf: 'CPF',
-  monthlyIncome: 'Salário'
-}
-
-function ClientTable ({ clientList }: {clientList: FormData[]}) {
+function ClientTable ({ clientList }: {clientList: ClientList[]}) {
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth
@@ -39,6 +26,7 @@ function ClientTable ({ clientList }: {clientList: FormData[]}) {
   return (
     <section className='clientList'>
       <h2>Lista de Clientes</h2>
+
     {dimensions.width < 768
       ? <ClientListMobile clientList={clientList} headFormat={headFormat} />
       : <ClientListDesktop clientList={clientList} headFormat={headFormat}/> }
