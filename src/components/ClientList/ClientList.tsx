@@ -1,28 +1,11 @@
-import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { ClientList, headFormat } from '../../utils/clientList'
 import './clientList.css'
 import ClientListDesktop from './ClientListDesktop'
 import ClientListMobile from './ClientListMobile'
 
-function ClientTable ({ clientList }: {clientList: ClientList[]}) {
-  const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth
-  })
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  })
+function ClientTable ({ clientList, dimensions }:
+   {clientList: ClientList[], dimensions: {height: number, width: number}}) {
   return (
     <section className='clientList'>
       <h2>Lista de Clientes</h2>
